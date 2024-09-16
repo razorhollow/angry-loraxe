@@ -27,7 +27,7 @@ export default function Example() {
           <div className="flex lg:flex-1">
             <NavLink to="#" className="-m-1.5 p-1.5">
               <span className="sr-only">Angry Lorax Tree Service</span>
-              <img alt="" src={logoAssetUrl} className="h-20 w-auto" />
+              <img alt="" src={logoAssetUrl} className="h-28 w-auto" />
             </NavLink>
           </div>
           <div className="flex lg:hidden">
