@@ -8,12 +8,13 @@ export default function ReviewSection() {
     const duplicatedReviews = [...reviews, ...reviews];
 
     return (
-        <div className=" py-12 bg-accent-100">
-            <div className="text-center">
-                <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        <div className="py-24 bg-accent-100">
+            <div className="mx-auto max-w-2xl lg:text-center mb-16">
+                <h2 className="text-base font-semibold leading-7 text-primary-700">What Our Customers Are Saying</h2>
+                <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Your Community&apos;s Top-Rated Tree Experts
-                </h2>
-                <p className="mt-4 text-lg leading-8 text-gray-600">
+                </p>
+                <p className="mt-6 text-lg leading-8 text-gray-600">
                     With the most 5-star reviews locally, we&apos;re proud to be the preferred partner for homeowners and businesses alike.
                 </p>
         </div>
