@@ -26,7 +26,7 @@ export default function ReviewCard({review }: ReviewCardProps) {
                 <Avatar name={firstName} />
                 <h3 className="text-lg font-semibold leading-7 text-gray-900">{firstName} {lastNameLetter}.</h3>
             </div>
-            <p className="text-sm leading-5 text-gray-600" >&quot;I had a great experience with Angry Loraxe. They were professional, efficient, and left my property spotless. Highly recommend!&quot;
+            <p className="text-sm leading-5 text-gray-600" >&quot;{review.reviewContent}&quot;
             </p>
             <div className="mt-3">
                 <div className="flex justify-between">

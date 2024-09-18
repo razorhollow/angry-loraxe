@@ -1,14 +1,17 @@
-import { getPastelColorFromName } from 'utils/colorUtils';
+import { getBrandColorFromName } from 'utils/colorUtils';
 
 export default function Avatar({ name }: { name: string }) {
-    const backgroundColor = getPastelColorFromName(name);
+    const backgroundColor = getBrandColorFromName(name).split(" ").join("");
     const firstLetter = name.charAt(0).toUpperCase();
+
+    console.log("Avatar: ", name, firstLetter, backgroundColor);
 
     return (
         <div
-            className={`flex items-center justify-center w-12 h-12 rounded-full bg-${backgroundColor} text-white`}
+            className="text-3xl flex items-center justify-center w-12 h-12 rounded-full text-white"
+            style={{ backgroundColor: backgroundColor }}
         >
             {firstLetter}
         </div>
-    )
+    );
 }

@@ -31,7 +31,17 @@ export default {
         sans: ['Open Sans', 'sans-serif'],   // Regular
         serif: ['Playfair Display', 'serif'], // Bold
       },
+    keyframes: {
+      //scroll from right to left
+      'scroll-right': {
+        '0%': { transform: 'translateX(0)' },
+        '100%': { transform: 'translateX(-50%)' },
+      },
     },
-    },
-  plugins: [],
+    animation: {
+      'scroll-right': 'scroll-right 200s linear infinite',
+    }
+  },
+},
+plugins: [],
 } satisfies Config;
