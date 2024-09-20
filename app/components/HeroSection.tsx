@@ -145,7 +145,7 @@ export default function HeroSection() {
       <div className="relative isolate overflow-hidden pt-[6rem]">
         {/* Hero Image */}
         <img
-          alt="Tree service hero image"
+          alt="Tree service professionals working on a tree"
           src={heroImage}
           className="absolute inset-0 -z-10 h-full w-full object-cover"
         />
