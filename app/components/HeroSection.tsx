@@ -1,7 +1,7 @@
-import { Dialog, DialogPanel } from "@headlessui/react";
+import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "@remix-run/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import heroImage from "~/assets/hero-image.png";
 import logoAssetUrl from "~/assets/logo.png";
@@ -13,28 +13,54 @@ const navigation = [
   { name: "Get An Estimate", href: "#" },
 ];
 
-export default function Example() {
+export default function HeroSection() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isTop, setIsTop] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsTop(window.scrollY < 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <div className="bg-gray-900">
       {/* Header */}
-      <header className="absolute inset-x-0 top-0 z-50">
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ease-in-out ${
+          isTop ? "bg-transparent py-6" : "bg-primary-500 py-3 shadow-md"
+        }`}
+      >
         <nav
           aria-label="Global"
-          className="flex items-center justify-between p-6 lg:px-8"
+          className="flex items-center justify-between px-6 lg:px-8"
         >
-          <div className="flex lg:flex-1">
-            <NavLink to="#" className="-m-1.5 p-1.5">
+          <div className="flex lg:flex-1 items-center">
+            <NavLink to="#" className="-m-1.5 p-1.5 flex items-center">
               <span className="sr-only">Angry Lorax Tree Service</span>
-              <img alt="" src={logoAssetUrl} className="h-28 w-auto" />
+              <img
+                alt="Angry Lorax Tree Service Logo"
+                src={logoAssetUrl}
+                className={`transition-all duration-300 ease-in-out ${
+                  isTop ? "h-28 w-auto" : "h-16 w-auto"
+                }`}
+              />
             </NavLink>
           </div>
           <div className="flex lg:hidden">
             <button
               type="button"
               onClick={() => setMobileMenuOpen(true)}
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-400"
+              className={`-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 transition-colors duration-300 ${
+                isTop ? "text-gray-300" : "text-neutral-900"
+              }`}
             >
               <span className="sr-only">Open main menu</span>
               <Bars3Icon aria-hidden="true" className="h-6 w-6" />
@@ -45,7 +71,9 @@ export default function Example() {
               <NavLink
                 key={item.name}
                 to={item.href}
-                className="text-sm font-semibold leading-6 text-white"
+                className={`text-sm font-semibold leading-6 transition-colors duration-300 ${
+                  isTop ? "text-white hover:text-primary-100" : "text-neutral-900 hover:text-neutral-700"
+                }`}
               >
                 {item.name}
               </NavLink>
@@ -54,7 +82,9 @@ export default function Example() {
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
             <NavLink
               to="#"
-              className="text-sm font-semibold leading-6 text-white"
+              className={`text-sm font-semibold leading-6 transition-colors duration-300 ${
+                isTop ? "text-white hover:text-primary-100" : "text-neutral-900 hover:text-neutral-700"
+              }`}
             >
               Log in <span aria-hidden="true">&rarr;</span>
             </NavLink>
@@ -67,7 +97,7 @@ export default function Example() {
           className="lg:hidden"
         >
           <div className="fixed inset-0 z-50" />
-          <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-900 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
+          <Dialog.Panel className="fixed inset-0 z-50 overflow-y-auto bg-gray-900 px-6 py-6">
             <div className="flex items-center justify-between">
               <NavLink to="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Angry Lorax Tree Service</span>
@@ -76,7 +106,7 @@ export default function Example() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen(false)}
-                className="-m-2.5 rounded-md p-2.5 text-gray-400"
+                className="-m-2.5 rounded-md p-2.5 text-gray-300"
               >
                 <span className="sr-only">Close menu</span>
                 <XMarkIcon aria-hidden="true" className="h-6 w-6" />
@@ -86,34 +116,36 @@ export default function Example() {
               <div className="-my-6 divide-y divide-gray-500/25">
                 <div className="space-y-2 py-6">
                   {navigation.map((item) => (
-                    <a
+                    <NavLink
                       key={item.name}
-                      href={item.href}
+                      to={item.href}
                       className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-gray-800"
+                      onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.name}
-                    </a>
+                    </NavLink>
                   ))}
                 </div>
                 <div className="py-6">
                   <NavLink
                     to="#"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-gray-800"
+                    onClick={() => setMobileMenuOpen(false)}
                   >
                     Log in
                   </NavLink>
                 </div>
               </div>
             </div>
-          </DialogPanel>
+          </Dialog.Panel>
         </Dialog>
       </header>
 
       {/* Hero Section */}
-      <div className="relative isolate overflow-hidden pt-14">
+      <div className="relative isolate overflow-hidden pt-[6rem]">
         {/* Hero Image */}
         <img
-          alt=""
+          alt="Tree service hero image"
           src={heroImage}
           className="absolute inset-0 -z-10 h-full w-full object-cover"
         />
@@ -136,7 +168,10 @@ export default function Example() {
               >
                 Get a Free Estimate
               </NavLink>
-              <NavLink to="#" className="text-sm font-semibold leading-6 text-white">
+              <NavLink
+                to="#"
+                className="text-sm font-semibold leading-6 text-white"
+              >
                 Learn more <span aria-hidden="true">→</span>
               </NavLink>
             </div>
