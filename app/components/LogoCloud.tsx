@@ -1,9 +1,11 @@
-import streeterAssetUrl from '~/assets/logos/streeter.png';
+import cvmsAssetUrl from '~/assets/logos/cvms.png';
 import fiveStarAssetUrl from '~/assets/logos/five-star.png';
+import goughAssetUrl from '~/assets/logos/gough.png';
 import michelAssetUrl from '~/assets/logos/michel.png';
 import scpLogoAssetUrl from '~/assets/logos/scp.png';
+import streeterAssetUrl from '~/assets/logos/streeter.png';
 
-export default function Example() {
+export default function LogoCloud() {
     return (
       <div className="bg-white py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -21,28 +23,28 @@ export default function Example() {
             </div>
             <div className="mx-auto grid w-full max-w-xl grid-cols-2 items-center gap-y-12 sm:gap-y-14 lg:mx-0 lg:max-w-none lg:pl-8">
               <img
-                alt="Tuple"
+                alt="Streeter Associates"
                 src={streeterAssetUrl}
                 width={105}
                 height={48}
                 className="max-h-12 w-full object-contain object-left"
               />
               <img
-                alt="Reform"
+                alt="Five Star Bank"
                 src={fiveStarAssetUrl}
                 width={104}
                 height={48}
                 className="max-h-12 w-full object-contain object-left"
               />
               <img
-                alt="SavvyCal"
+                alt="Michel"
                 src={michelAssetUrl}
                 width={140}
                 height={48}
                 className="max-h-12 w-full object-contain object-left"
               />
               <img
-                alt="Laravel"
+                alt="Silicon Carbide Products"
                 src={scpLogoAssetUrl}
                 width={136}
                 height={48}
@@ -50,14 +52,14 @@ export default function Example() {
               />
               <img
                 alt="Transistor"
-                src="https://tailwindui.com/img/logos/transistor-logo-gray-900.svg"
+                src={cvmsAssetUrl}
                 width={158}
                 height={48}
                 className="max-h-12 w-full object-contain object-left"
               />
               <img
                 alt="Statamic"
-                src="https://tailwindui.com/img/logos/statamic-logo-gray-900.svg"
+                src={goughAssetUrl}
                 width={147}
                 height={48}
                 className="max-h-12 w-full object-contain object-left"
