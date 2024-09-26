@@ -1,8 +1,8 @@
-import brushHogAssetUrl from '~/assets/servicesGraphics/brush-hogging.svg'
-import stormCleanupAssetUrl from '~/assets/servicesGraphics/storm-cleanup.svg'
-import stumpGrindingAssetUrl from '~/assets/servicesGraphics/stump-grinding.svg'
-import treePruningAssetUrl from '~/assets/servicesGraphics/tree-pruning.svg'
-import treeRemovalAssetUrl from '~/assets/servicesGraphics/tree-removal.svg'
+import brushHogAssetUrl from '~/assets/servicesGraphics/brush-hogging.webp'
+import stormCleanupAssetUrl from '~/assets/servicesGraphics/storm-cleanup.webp'
+import stumpGrindingAssetUrl from '~/assets/servicesGraphics/stump-grinding.webp'
+import treePruningAssetUrl from '~/assets/servicesGraphics/tree-pruning.webp'
+import treeRemovalAssetUrl from '~/assets/servicesGraphics/tree-removal.webp'
 
 export default function ServicesSection() {
     return (
@@ -19,7 +19,7 @@ export default function ServicesSection() {
               <img
                 alt=""
                 src={treeRemovalAssetUrl}
-                className="h-80 w-auto"
+                className="h-80 object-scale-down"
               />
               <div className="p-10 pt-4">
                 <h3 className="text-sm/4 font-semibold text-primary-500">Tree Removal</h3>
@@ -37,7 +37,7 @@ export default function ServicesSection() {
               <img
                 alt=""
                 src={stumpGrindingAssetUrl}
-                className="h-80"
+                className="h-80 object-scale-down"
               />
               <div className="p-10 pt-4">
                 <h3 className="text-sm/4 font-semibold text-primary-500">Stump Grinding</h3>
@@ -55,7 +55,7 @@ export default function ServicesSection() {
               <img
                 alt=""
                 src={stormCleanupAssetUrl}
-                className="h-80 object-cover object-left"
+                className="h-80 object-scale-down"
               />
               <div className="p-10 pt-4">
                 <h3 className="text-sm/4 font-semibold text-primary-500">Storm Cleanup</h3>
@@ -73,7 +73,7 @@ export default function ServicesSection() {
               <img
                 alt=""
                 src={treePruningAssetUrl}
-                className="h-80 object-cover object-center"
+                className="h-80 object-scale-down"
               />
               <div className="p-10 pt-4">
                 <h3 className="text-sm/4 font-semibold text-primary-500">Tree Pruning</h3>
@@ -91,7 +91,7 @@ export default function ServicesSection() {
               <img
                 alt=""
                 src={brushHogAssetUrl}
-                className="h-80 object-cover object-center"
+                className="h-80 object-scale-down"
               />
               <div className="p-10 pt-4">
                 <h3 className="text-sm/4 font-semibold text-primary-500">Brush-Hogging</h3>
