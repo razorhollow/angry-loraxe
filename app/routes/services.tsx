@@ -1,7 +1,7 @@
 'use client'
 
 import { Dialog, DialogBackdrop, DialogPanel, TransitionChild } from '@headlessui/react';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { XMarkIcon } from '@heroicons/react/24/outline';
 import { NavLink, Outlet } from '@remix-run/react'; // Import NavLink from Remix
 import { useState } from 'react';
 

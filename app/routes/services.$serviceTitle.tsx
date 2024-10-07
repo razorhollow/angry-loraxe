@@ -91,7 +91,7 @@ export default function ServicePage() {
               <ul className="mt-8 space-y-8 text-neutral-600">
                 {service.benefits.map((benefit, index) => (
                   <li key={index} className="flex gap-x-3">
-                    <IconComponent iconName={benefit.icon} />
+                    <IconComponent iconName={benefit.icon as keyof typeof iconMap} />
                     <span>
                       <strong className="font-semibold text-neutral-900">{benefit.title}</strong> {benefit.description}
                     </span>
