@@ -1,3 +1,4 @@
+import { ArrowTrendingUpIcon, AcademicCapIcon, GlobeAmericasIcon, BuildingStorefrontIcon, CheckBadgeIcon, ArrowPathIcon, KeyIcon, TruckIcon, TrashIcon, PhoneArrowUpRightIcon, RocketLaunchIcon, WrenchScrewdriverIcon, PhotoIcon, HomeIcon, PaintBrushIcon, ScissorsIcon, StarIcon, CursorArrowRippleIcon, BoltIcon, IdentificationIcon, CloudArrowUpIcon, LockClosedIcon, ServerIcon, SparklesIcon, ShieldCheckIcon, CheckCircleIcon } from '@heroicons/react/20/solid';
 import { json, LoaderFunctionArgs } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 
@@ -14,6 +15,46 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
 
   return json(service);
 };
+
+// Icon mapping
+const iconMap = {
+  CloudArrowUpIcon: CloudArrowUpIcon,
+  LockClosedIcon: LockClosedIcon,
+  ServerIcon: ServerIcon,
+  SparklesIcon: SparklesIcon,
+  ShieldCheckIcon: ShieldCheckIcon,
+  CheckCircleIcon: CheckCircleIcon,
+  IdentificationIcon: IdentificationIcon,
+  BoltIcon: BoltIcon,
+  CursorArrowRippleIcon: CursorArrowRippleIcon,
+  StarIcon: StarIcon,
+  ScissorsIcon: ScissorsIcon,
+  PaintBrushIcon: PaintBrushIcon,
+  HomeIcon: HomeIcon,
+  PhotoIcon: PhotoIcon,
+  WrenchScrewdriverIcon: WrenchScrewdriverIcon,
+  RocketLaunchIcon: RocketLaunchIcon,
+  PhoneArrowUpRightIcon: PhoneArrowUpRightIcon,
+  TrashIcon: TrashIcon,
+  TruckIcon: TruckIcon,
+  ArrowPathIcon: ArrowPathIcon,
+  KeyIcon: KeyIcon,
+  CheckBadgeIcon: CheckBadgeIcon,
+  BuildingStorefrontIcon: BuildingStorefrontIcon,
+  GlobeAmericasIcon: GlobeAmericasIcon,
+  AcademicCapIcon: AcademicCapIcon,
+  ArrowTrendingUpIcon: ArrowTrendingUpIcon,
+};
+
+// This component renders the passed icon component dynamically
+interface IconComponentProps {
+  iconName: keyof typeof iconMap;
+}
+
+function IconComponent({ iconName }: IconComponentProps) {
+  const Icon = iconMap[iconName]; // Find the correct icon component by name
+  return Icon ? <Icon className="h-5 w-5 mt-1 flex-none text-primary-500" aria-hidden="true" /> : null;
+}
 
 
 export default function ServicePage() {
@@ -50,6 +91,7 @@ export default function ServicePage() {
               <ul className="mt-8 space-y-8 text-neutral-600">
                 {service.benefits.map((benefit, index) => (
                   <li key={index} className="flex gap-x-3">
+                    <IconComponent iconName={benefit.icon} />
                     <span>
                       <strong className="font-semibold text-neutral-900">{benefit.title}</strong> {benefit.description}
                     </span>
@@ -74,3 +116,4 @@ export default function ServicePage() {
     </div>
   );
 }
+
