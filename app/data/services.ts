@@ -1,5 +1,3 @@
-import { CloudArrowUpIcon, LockClosedIcon, ServerIcon, SparklesIcon, ShieldCheckIcon, CheckCircleIcon, ArrowTrendingUpIcon } from '@heroicons/react/20/solid';
-
 import brushHoggingImg from '~/assets/serviceImages/brush-hogging.png';
 import emergencyTreeRemovalImg from '~/assets/serviceImages/emergency-tree-removal.png';
 import lotClearingImg from '~/assets/serviceImages/lot-clearing.png';
