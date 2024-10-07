@@ -29,7 +29,7 @@ export default function ServicesDropdown({ isTop }: ServicesDropdownProps) {
                         <MenuItem key={service.name}>
                             {({ active }) => (
                                 <Link
-                                    to={service.href}
+                                    to={`/services/${service.slug}`}
                                     className={`block px-4 py-2 text-sm ${active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'
                                         }`}
                                 >
