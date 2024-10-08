@@ -25,7 +25,7 @@ export default function HeroSection() {
         <div className="hidden sm:mb-6 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-white ring-1 ring-neutral-400 hover:ring-gray-900/20">
               For every tree we cut, we plant another.{' '}
-              <a href="#" className="font-semibold text-primary-300">
+              <a href="/about" className="font-semibold text-primary-300">
                 <span aria-hidden="true" className="absolute inset-0" />
                 Read more <span aria-hidden="true">&rarr;</span>
               </a>
