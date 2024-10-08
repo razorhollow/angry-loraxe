@@ -1,6 +1,6 @@
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react';
 import { ChevronDownIcon } from '@heroicons/react/24/outline';
-import { Link } from '@remix-run/react';
+import { Link, NavLink } from '@remix-run/react';
 
 import { services } from '~/data/services';
 
@@ -12,11 +12,15 @@ export default function ServicesDropdown({ isTop }: ServicesDropdownProps) {
 
     return (
         <Menu as="div" className="relative inline-block text-left">
-            <div>
-                <MenuButton className={`text-sm font-semibold leading-6 transition-colors duration-300 ${isTop ? "text-white hover:text-primary-100" : "text-neutral-900 hover:text-neutral-700"
-                    }`}>
-                    <span className="sr-only">Open services menu</span>
-                    <span className='flex items-center gap-1'>Services <ChevronDownIcon className='size-4' /></span>
+            <div className="flex items-center gap-1">
+                <NavLink 
+                    to="/services"
+                    className={`text-sm font-semibold leading-6 transition-colors duration-300 ${isTop ? "text-white hover:text-primary-100" : "text-neutral-900 hover:text-neutral-700"}`}
+                >
+                    Services
+                </NavLink>
+                <MenuButton className="transition-colors duration-300">
+                    <ChevronDownIcon className={`h-4 w-4 ${isTop ? "text-neutral-300 hover:text-primary-100" : "text-neutral-800 hover:text-neutral-700"}`} />
                 </MenuButton>
             </div>
 
@@ -30,8 +34,7 @@ export default function ServicesDropdown({ isTop }: ServicesDropdownProps) {
                             {({ active }) => (
                                 <Link
                                     to={`/services/${service.slug}`}
-                                    className={`block px-4 py-2 text-sm ${active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'
-                                        }`}
+                                    className={`block px-4 py-2 text-sm ${active ? 'bg-gray-100 text-gray-900' : 'text-gray-700'}`}
                                 >
                                     {service.name}
                                 </Link>
@@ -43,6 +46,3 @@ export default function ServicesDropdown({ isTop }: ServicesDropdownProps) {
         </Menu>
     );
 }
-
-
-

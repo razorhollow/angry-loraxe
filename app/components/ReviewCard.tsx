@@ -15,7 +15,6 @@ interface ReviewCardProps {
 
 
 export default function ReviewCard({review }: ReviewCardProps) {
-    console.log("HERES THE REVIEW: ",review);
     const nameArray = review.reviewerName.split(" ");
     const firstName = nameArray[0];
     const lastNameLetter = nameArray[1] ? nameArray[1].charAt(0) : '';

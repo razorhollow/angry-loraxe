@@ -1,6 +1,6 @@
 import { ArrowTrendingUpIcon, AcademicCapIcon, GlobeAmericasIcon, BuildingStorefrontIcon, CheckBadgeIcon, ArrowPathIcon, KeyIcon, TruckIcon, TrashIcon, PhoneArrowUpRightIcon, RocketLaunchIcon, WrenchScrewdriverIcon, PhotoIcon, HomeIcon, PaintBrushIcon, ScissorsIcon, StarIcon, CursorArrowRippleIcon, BoltIcon, IdentificationIcon, CloudArrowUpIcon, LockClosedIcon, ServerIcon, SparklesIcon, ShieldCheckIcon, CheckCircleIcon } from '@heroicons/react/20/solid';
 import { json, LoaderFunctionArgs } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { NavLink, useLoaderData } from "@remix-run/react";
 
 import { services } from "~/data/services";
 
@@ -79,7 +79,7 @@ export default function ServicePage() {
           <div className="mx-auto max-w-2xl pb-24 pt-16 sm:pb-32 sm:pt-20 lg:ml-8 lg:mr-0 lg:w-full lg:max-w-lg lg:flex-none lg:pt-32 xl:w-1/2">
             <p className="text-base font-semibold leading-7 text-primary-500">{service.name} Services</p>
             <h1 className="mt-2 text-4xl font-serif font-bold tracking-tight text-neutral-900 sm:text-4xl">
-              Premium {service.name} Tailored for Your Needs
+              {service.heading}
             </h1>
             <p className="mt-6 text-xl leading-8 text-neutral-700 font-sans">
               {service.description}
@@ -105,9 +105,15 @@ export default function ServicePage() {
 
               {/* CTA Button */}
               <div className="mt-10">
-                <button className="inline-flex items-center justify-center rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-primary-700 transition duration-200">
+                {service.name === "Emergency Tree Removal" ? (
+                <NavLink to='tel:607-742-5792' className="inline-flex items-center justify-center rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-primary-700 transition duration-200">
                   {service.cta}
-                </button>
+                </NavLink>
+                ) : (
+                <NavLink to="/contact" className="inline-flex items-center justify-center rounded-md bg-primary-500 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-primary-700 transition duration-200">
+                  {service.cta}
+                </NavLink>
+                  )}
               </div>
             </div>
           </div>
