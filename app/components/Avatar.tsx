@@ -4,8 +4,6 @@ export default function Avatar({ name }: { name: string }) {
     const backgroundColor = getBrandColorFromName(name).split(" ").join("");
     const firstLetter = name.charAt(0).toUpperCase();
 
-    console.log("Avatar: ", name, firstLetter, backgroundColor);
-
     return (
         <div
             className="text-3xl flex items-center justify-center w-12 h-12 rounded-full text-white"

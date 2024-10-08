@@ -43,7 +43,7 @@ export default function ServicesNavbar() {
                 </div>
                 <p className="text-lg text-white max-w-2xl mb-8">
                     {currentIndex === -1
-                        ? "Explore our 3-step process for exceptional tree care and discover how we can help you transform your outdoor space."
+                        ? "Explore our 3-step process and discover how simple it is to transform your outdoor space."
                         : "Learn more about our professional tree care services designed to meet all your needs."}
                 </p>
                 <p className="text-lg text-accent-700 max-w-2xl mb-4">
