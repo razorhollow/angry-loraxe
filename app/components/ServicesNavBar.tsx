@@ -1,4 +1,4 @@
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
+import { ChevronLeftIcon, ChevronRightIcon, ArrowLeftCircleIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "@remix-run/react";
 import { useState } from "react";
 
@@ -8,6 +8,7 @@ import { services } from "~/data/services";
 export default function ServicesNavbar() {
     const [currentIndex, setCurrentIndex] = useState(-1); // Default to "Overview"
     const navigate = useNavigate();
+    const goBack = () => navigate(-1)
 
     const handlePrev = () => {
         setCurrentIndex((prevIndex) => {
@@ -76,6 +77,14 @@ export default function ServicesNavbar() {
                         Learn More About Us
                         <ChevronRightIcon className="h-5 w-5" aria-hidden="true" />
                     </a>
+                </div>
+                <div className="absolute top-4 left-6">
+                    <button
+                        className="text-lg font-semibold text-white hover:text-accent-300 transition-colors duration-300 flex items-center gap-1"
+                        onClick={goBack}
+                    >
+                        <ArrowLeftCircleIcon className="h-7 w-7" aria-hidden="true" />
+                    </button>
                 </div>
             </nav>
         </header>

@@ -25,10 +25,10 @@ export default function HeroSection() {
         <div className="hidden sm:mb-6 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-white ring-1 ring-neutral-400 hover:ring-gray-900/20">
               For every tree we cut, we plant another.{' '}
-              <a href="/about" className="font-semibold text-primary-300">
+              <NavLink to="/about#tree-planting" className="font-semibold text-primary-300" prefetch="intent">
                 <span aria-hidden="true" className="absolute inset-0" />
                 Read more <span aria-hidden="true">&rarr;</span>
-              </a>
+              </NavLink>
             </div>
           </div>
           <div className="text-center">
@@ -40,14 +40,15 @@ export default function HeroSection() {
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <NavLink
-                to="#"
+                to="/contact"
                 className="rounded-md bg-primary-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-500"
               >
                 Get a Free Estimate
               </NavLink>
               <NavLink
-                to="#"
+                to="/services"
                 className="text-sm font-semibold leading-6 text-white"
+                prefetch="intent"
               >
                 Learn more <span aria-hidden="true">→</span>
               </NavLink>

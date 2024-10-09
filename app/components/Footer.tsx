@@ -75,13 +75,10 @@ export default function Footer() {
                                 <h3 className="text-sm font-semibold leading-6 text-white">Company</h3>
                                 <ul className="mt-6 space-y-4">
                                     <li>
-                                        <a href="/about-us" className="text-sm leading-6 text-gray-300 hover:text-white">About Us</a>
+                                        <a href="/about" className="text-sm leading-6 text-gray-300 hover:text-white">About Us</a>
                                     </li>
                                     <li>
                                         <a href="/contact" className="text-sm leading-6 text-gray-300 hover:text-white">Contact</a>
-                                    </li>
-                                    <li>
-                                        <a href="/reviews" className="text-sm leading-6 text-gray-300 hover:text-white">Customer Reviews</a>
                                     </li>
                                 </ul>
                             </div>

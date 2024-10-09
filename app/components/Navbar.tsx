@@ -10,10 +10,9 @@ import { services } from "~/data/services";
 import ServicesDropdown from "./ServicesDropdown";
 
 const navigation = [
-    { name: "About Us", href: "#" },
+    { name: "About Us", href: "/about" },
     // { name: "Services", href: "#" }, // Replaced by ServicesDropdown
-    { name: "Reviews", href: "#" },
-    { name: "Contact Us", href: "#" },
+    { name: "Contact Us", href: "/contact" },
 ];
 
 export default function Navbar() {
