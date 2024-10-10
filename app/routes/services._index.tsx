@@ -4,13 +4,6 @@ import step1Img from "../assets/step-1.png";
 import step2Img from "../assets/step-2.png";
 import step3Img from "../assets/step-3.png";
 
-export const meta: MetaFunction = () => {
-    return [
-        { title: "Angry Loraxe - Our Process" },
-        { name: "description", content: "Learn about our professional 3-step process for exceptional tree care." },
-    ];
-};
-
 export default function Services() {
     return (
         <div className="text-neutral-900 font-sans py-16 bg-neutral-100">
@@ -93,4 +86,11 @@ export default function Services() {
             </div>
         </div>
     );
+}
+
+export const meta: MetaFunction = () => {
+    return [
+        { title: "Angry Loraxe - Our Process" },
+        { name: "description", content: "Learn about our professional 3-step process for exceptional tree care customer service." },
+    ];
 }

@@ -102,3 +102,10 @@ export default function ContactRoute() {
         </div>
     )
 }
+
+export const meta = () => {
+    return [
+        { title: 'Angry Loraxe - Contact Us' },
+        { name: 'description', content: 'Get in touch with Angry Loraxe Tree Service today. Whether you have questions, need advice, or want to book a service, our dedicated team is ready to assist you.' }
+    ]
+}

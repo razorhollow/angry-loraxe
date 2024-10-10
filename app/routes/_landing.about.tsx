@@ -173,3 +173,9 @@ export default function AboutPage() {
         </main>
     );
 }
+export const meta =() => {
+    return [
+        {title: 'Angry Loraxe - About Us'},
+        {name: 'description', content: 'Learn more about the Angry Loraxe Tree Service team, our commitment to the environment, and our dedication to customer satisfaction.'}
+    ]
+}

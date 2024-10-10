@@ -16,3 +16,10 @@ export default function Landing() {
         </div>
     );
 }
+
+export const meta =() => {
+    return [
+        {title: 'Angry Loraxe - Home'},
+        {name: 'description', content: 'Angry Loraxe Tree Service is the premier tree service in the Southern Tier, NY. We provide tree removal, tree trimming, stump grinding, and more.'}
+    ]
+}

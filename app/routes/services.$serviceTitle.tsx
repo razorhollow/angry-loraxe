@@ -1,8 +1,9 @@
 import { ArrowTrendingUpIcon, AcademicCapIcon, GlobeAmericasIcon, BuildingStorefrontIcon, CheckBadgeIcon, ArrowPathIcon, KeyIcon, TruckIcon, TrashIcon, PhoneArrowUpRightIcon, RocketLaunchIcon, WrenchScrewdriverIcon, PhotoIcon, HomeIcon, PaintBrushIcon, ScissorsIcon, StarIcon, CursorArrowRippleIcon, BoltIcon, IdentificationIcon, CloudArrowUpIcon, LockClosedIcon, ServerIcon, SparklesIcon, ShieldCheckIcon, CheckCircleIcon } from '@heroicons/react/20/solid';
-import { json, LoaderFunctionArgs } from "@remix-run/node";
+import { json, LoaderFunctionArgs, MetaFunction } from "@remix-run/node";
 import { NavLink, useLoaderData } from "@remix-run/react";
 
 import { services } from "~/data/services";
+import type { Service } from "~/types";
 
 // Loader function to fetch the correct service based on the slug
 export const loader = async ({ params }: LoaderFunctionArgs) => {
@@ -13,7 +14,7 @@ export const loader = async ({ params }: LoaderFunctionArgs) => {
     throw new Response("Not Found", { status: 404 });
   }
 
-  return json(service);
+  return json<Service>(service);
 };
 
 // Icon mapping
@@ -56,9 +57,8 @@ function IconComponent({ iconName }: IconComponentProps) {
   return Icon ? <Icon className="h-5 w-5 mt-1 flex-none text-primary-500" aria-hidden="true" /> : null;
 }
 
-
 export default function ServicePage() {
-  const service = useLoaderData <typeof loader>();
+  const service = useLoaderData <Service>();
 
   return (
     <div className="relative bg-neutral-100">
@@ -123,3 +123,9 @@ export default function ServicePage() {
   );
 }
 
+export const meta: MetaFunction<typeof loader> = ({ 
+  data,
+}) => {
+  if (!data) return [{ title: 'Loading...' }];
+  return [{ title: `Angry Loraxe - ${data.name}` }, { name: 'description', content: data.description }];
+}
