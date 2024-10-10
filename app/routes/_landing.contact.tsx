@@ -1,42 +1,50 @@
 import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
-import { ActionFunctionArgs, json } from '@remix-run/node'
-
-import { services } from '~/data/services'
+import { LinksFunction } from '@remix-run/node'
+import { useEffect } from 'react'
 
 import contactHeroImg from '../assets/contact-hero.png'
 
-const notificationMethods = [
-    { id: 'email', title: 'Email' },
-    { id: 'phone', title: 'Phone' },
-    { id: 'text', title: 'Text Message (SMS)' },
-]
 
-export const action = async ({ request }: ActionFunctionArgs) => {
-    const formData = await request.formData()
-    const firstName = formData.get('first-name')
-    const lastName = formData.get('last-name')
-    const email = formData.get('email')
-    const phoneNumber = formData.get('phone-number')
-    const message = formData.get('message')
-    const servicesRequested = formData.getAll('services-requested')
-    const notificationMethod = formData.get('notification-method')
-    console.log({
-        firstName,
-        lastName,
-        email,
-        phoneNumber,
-        message,
-        servicesRequested,
-        notificationMethod,
-    })
-
-    return json({ message: 'Message sent!' })
-}
-
-
+export const links: LinksFunction = () => {
+    return [
+        {
+            rel: "stylesheet",
+            href: "https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css",
+            media: "screen",
+        },
+    ];
+};
 
 
 export default function ContactRoute() {
+    useEffect(() => {
+        // Check if the script is already present
+        const existingScript = document.getElementById('work-request-embed-script');
+        if (!existingScript) {
+            const script = document.createElement('script');
+            script.id = 'work-request-embed-script'; // Assign an ID for easy reference
+            script.src = 'https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js';
+            script.async = true;
+            script.setAttribute('clienthub_id', '90afd8bb-3397-40f2-97d2-5513373037f7');
+            script.setAttribute(
+                'form_url',
+                'https://clienthub.getjobber.com/client_hubs/90afd8bb-3397-40f2-97d2-5513373037f7/public/work_request/embedded_work_request_form'
+            );
+            document.body.appendChild(script);
+        }
+
+        // Optional Cleanup: Only remove if you are certain the script shouldn't persist
+        // In most cases, you might want to keep the script for the lifetime of the app
+        /*
+        return () => {
+            const script = document.getElementById('work-request-embed-script');
+            if (script) {
+                document.body.removeChild(script);
+            }
+        };
+        */
+    }, [])
+
     return (
         <div className="relative isolate bg-white">
             <div className='w-full'>
@@ -86,136 +94,10 @@ export default function ContactRoute() {
                         </dl>
                     </div>
                 </div>
-                <form action="#" method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
-                    <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
-                        <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-                            <div>
-                                <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
-                                    First name
-                                </label>
-                                <div className="mt-2.5">
-                                    <input
-                                        required
-                                        id="first-name"
-                                        name="first-name"
-                                        type="text"
-                                        autoComplete="given-name"
-                                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6"
-                                    />
-                                </div>
-                            </div>
-                            <div>
-                                <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900">
-                                    Last name
-                                </label>
-                                <div className="mt-2.5">
-                                    <input
-                                        id="last-name"
-                                        name="last-name"
-                                        type="text"
-                                        autoComplete="family-name"
-                                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6"
-                                    />
-                                </div>
-                            </div>
-                            <div className="sm:col-span-2">
-                                <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
-                                    Email
-                                </label>
-                                <div className="mt-2.5">
-                                    <input
-                                        id="email"
-                                        name="email"
-                                        type="email"
-                                        autoComplete="email"
-                                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6"
-                                    />
-                                </div>
-                            </div>
-                            <div className="sm:col-span-2">
-                                <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-gray-900">
-                                    Phone number
-                                </label>
-                                <div className="mt-2.5">
-                                    <input
-                                        required
-                                        id="phone-number"
-                                        name="phone-number"
-                                        type="tel"
-                                        autoComplete="tel"
-                                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6"
-                                    />
-                                </div>
-                            </div>
-                            <div className="sm:col-span-2">
-                                <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
-                                    Message
-                                </label>
-                                <div className="mt-2.5">
-                                    <textarea
-                                        id="message"
-                                        name="message"
-                                        rows={4}
-                                        className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-500 sm:text-sm sm:leading-6"
-                                        defaultValue={''}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <fieldset className='mt-2.5'>
-                            <legend className="text-sm font-semibold leading-6 text-gray-900">Services Requested</legend>
-                            <div className="mt-4 divide-y divide-gray-200 border-b border-t border-gray-200">
-                                {services.map((service) => (
-                                    <div key={service.slug} className="relative flex items-start py-4">
-                                        <div className="min-w-0 flex-1 text-sm leading-6">
-                                            <label htmlFor={`service-${service.slug}`} className="select-none font-medium text-gray-900">
-                                                {service.name}
-                                            </label>
-                                        </div>
-                                        <div className="ml-3 flex h-6 items-center">
-                                            <input
-                                                id={`service-${service.slug}`}
-                                                name="services-requested"
-                                                value={service.name}
-                                                type="checkbox"
-                                                className="h-4 w-4 rounded border-gray-300 text-primary-500 focus:ring-primary-500"
-                                            />
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </fieldset>
-                        <fieldset className='mt-2.5'>
-                            <legend className="text-sm font-semibold leading-6 text-gray-900">Notifications</legend>
-                            <p className="mt-1 text-sm leading-6 text-gray-600">How do you prefer to be contacted?</p>
-                            <div className="mt-6 space-y-6 sm:flex sm:items-center sm:space-x-10 sm:space-y-0">
-                                {notificationMethods.map((notificationMethod) => (
-                                    <div key={notificationMethod.id} className="flex items-center">
-                                        <input
-                                            defaultChecked={notificationMethod.id === 'phone'}
-                                            id={notificationMethod.id}
-                                            name="notification-method"
-                                            value={notificationMethod.id}
-                                            type="radio"
-                                            className="h-4 w-4 border-gray-300 text-primary-500 focus:ring-primary-500"
-                                        />
-                                        <label htmlFor={notificationMethod.id} className="ml-3 block text-sm font-medium leading-6 text-gray-900">
-                                            {notificationMethod.title}
-                                        </label>
-                                    </div>
-                                ))}
-                            </div>
-                        </fieldset>
-                        <div className="mt-8 flex justify-end">
-                            <button
-                                type="submit"
-                                className="rounded-md bg-primary-500 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-primary-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-500"
-                            >
-                                Send message
-                            </button>
-                        </div>
-                    </div>
-                </form>
+                <div className='px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48'>
+                    <div id="90afd8bb-3397-40f2-97d2-5513373037f7"></div>
+
+                </div>
             </div>
         </div>
     )
