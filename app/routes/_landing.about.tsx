@@ -1,5 +1,5 @@
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react'
-import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
+import { MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
 
 import aboutHeroImg from '../assets/about-header.png';
 import joshHeadShotImg from '../assets/josh-headshot.png';
@@ -44,7 +44,7 @@ const people = [
         imageUrl: joshHeadShotImg,
         bio: <>Josh, the other brother behind Angry Loraxe, is a dedicated forester with a degree from {" "}
             <a 
-                href="https://www.paulsmiths.edu/" 
+                href="https://www.paulsmiths.edu/forestry" 
                 className="text-primary-300 hover:text-primary-500" 
                 target="_blank" 
                 rel="noopener noreferrer"
@@ -89,7 +89,7 @@ export default function AboutPage() {
                     <ul className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:gap-x-8 xl:col-span-2">
                         {people.map((person) => (
                             <li key={person.name}>
-                                <img alt="" src={person.imageUrl} className="w-full object-cover rounded-md shadow-md" />
+                                <img alt="owner headshot" src={person.imageUrl} className="w-full object-cover rounded-md" />
                                 <h3 className="mt-6 text-lg font-semibold leading-8 text-gray-900">{person.name}</h3>
                                 <p className="text-base leading-7 text-gray-600">{person.role}</p>
                                 <p className="mt-4 text-base leading-7 text-gray-600">{person.bio}</p>
@@ -124,8 +124,8 @@ export default function AboutPage() {
                                         <DisclosureButton className="group flex w-full items-start justify-between text-left text-white">
                                             <span className="text-base font-semibold leading-7">{faq.question}</span>
                                             <span className="ml-6 flex h-7 items-center">
-                                                <PlusSmallIcon aria-hidden="true" className="h-6 w-6 group-data-[open]:hidden" />
-                                                <MinusSmallIcon aria-hidden="true" className="h-6 w-6 [.group:not([data-open])_&]:hidden" />
+                                                <PlusIcon aria-hidden="true" className="h-6 w-6 group-data-[open]:hidden" />
+                                                <MinusIcon aria-hidden="true" className="h-6 w-6 [.group:not([data-open])_&]:hidden" />
                                             </span>
                                         </DisclosureButton>
                                     </dt>
