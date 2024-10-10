@@ -80,7 +80,7 @@ export default function Navbar() {
                 </div>
                 <div className="hidden lg:flex lg:flex-1 lg:justify-end">
                     <NavLink
-                        to="/login"
+                        to="/secure.getjobber.com/login"
                         className={`text-sm font-semibold leading-6 transition-colors duration-300 ${isTop
                                 ? "text-white hover:text-primary-100"
                                 : "text-neutral-900 hover:text-neutral-700"
@@ -144,7 +144,7 @@ export default function Navbar() {
                             </div>
                             <div className="py-6">
                                 <NavLink
-                                    to="#"
+                                    to="secure.getjobber.com/login"
                                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-gray-800"
                                     onClick={() => setMobileMenuOpen(false)}
                                 >
